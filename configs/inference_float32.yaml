@@ -1,0 +1,27 @@
+paths:
+  ckpt_root: ${oc.env:DYNAMESH4D_CHECKPOINT_ROOT,./checkpoints}
+sam3:
+  ckpt_path: ${paths.ckpt_root}/sam3/sam3.pt
+sam_3d_body:
+  ckpt_path: ${paths.ckpt_root}/sam-3d-body-dinov3/model.ckpt
+  mhr_path: ${paths.ckpt_root}/sam-3d-body-dinov3/assets/mhr_model.pt
+  fov_path: ${paths.ckpt_root}/moge-2-vitl-normal/model.pt
+  batch_size: 4
+  detector_path: ''
+  segmentor_path: ''
+  model_config: ${oc.env:DYNAMESH4D_SAM3D_MODEL_CONFIG,./configs/sam3d_float32.yaml}
+runtime:
+  output_dir: ${oc.env:DYNAMESH4D_OUTPUT_DIR,./outputs}
+completion:
+  enable: false
+  detection_resolution:
+  - 512
+  - 1024
+  completion_resolution:
+  - 512
+  - 1024
+  model_path_mask: ${paths.ckpt_root}/diffusion-vas-amodal-segmentation
+  model_path_rgb: ${paths.ckpt_root}/diffusion-vas-content-completion
+  model_path_depth: ${paths.ckpt_root}/depth_anything_v2_vitl.pth
+  depth_encoder: vitl
+  max_occ_len: 25

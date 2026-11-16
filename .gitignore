@@ -1,0 +1,50 @@
+# Python caches and build artifacts
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+
+# Runtime outputs, logs, and temporary files
+outputs/
+gradio_tmp/
+logs/
+*.log
+*.tmp
+*.temp
+*.part
+
+# Datasets and local inputs
+data/
+datasets/
+dataset/
+
+# Local environments and editor state
+.venv/
+venv/
+env/
+conda-env/
+.idea/
+.vscode/
+
+# Credentials and machine-private configuration
+.env
+.env.*
+*.pem
+*.key
+credentials*
+secrets*
+
+# External foundation-model checkpoints (kept outside this repository)
+checkpoints/
+*.ckpt
+*.safetensors
+*.pt
+*.pth
+
+# The formal DynaMesh4D smoother weight is intentionally versioned
+!mamba_smoother_epoch_15.pth
